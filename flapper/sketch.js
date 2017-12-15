@@ -1,17 +1,22 @@
-
 var bird;
 var pipes = [];
 
 function setup() {
-new Audio('https://www.mp3converter.net/index.php?output=yt/YgGzAKP_HuM/128%7e%7e256%7e%7eRASPUTIN_-_Vladimir_Putin_-_Love_The_Way_You_Move_Funk_Overload_slocband_uuid-5a3150db36216.mp3').play()
-
-  createCanvas(400, 650);
+new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
+  img = loadImage("https://czaplickij.github.io/advapps/clouds.jpg");
+  createCanvas(650, 1056);
   bird = new Bird();
   pipes.push(new Pipe());
 }
 
 function draw() {
   background (143, 252, 252);
+// Displays the image at its actual size at point (0,0)
+  image(img, 0, 0);
+  // Displays the image at point (0, height/2) at half size
+  image(img, 0, height, img.width, img.height);
+
+  
   for (var i = pipes.length-1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
@@ -42,6 +47,13 @@ function mousePressed() {
     //console.log("SPACE");
   
 }
+if (mousePressed) {
+fill(255,0,0);
+triangle(this.x,this.y+10,this.x,this.y+20,this.x-10,this.y+15);  
+} else{
+  fill(255,0,0);
+triangle(this.x,this.y+10,this.x,this.y+20,this.x-10,this.y+15);  
+}
 
 function Bird() {
   this.y = height/2;
@@ -51,14 +63,14 @@ function Bird() {
   this.velocity = 0;
 
   this.show = function() {
-    fill(96, 11, 119);
-    noStroke();
+    fill(0);
+    stroke(255);
+    strokeWeight(3);
     rect(this.x, this.y,50,30);
     triangle(this.x-20, this.y+15, this.x, this.y,this.x,this.y +30);
 		triangle(this.x+20,this.y-40,this.x+20,this.y+70,this.x+40, this.y+15);
     arc(this.x+50,this.y+15,50,30,4.7,PI)
-    fill(255);
-    triangle(this.x,this.y+10,this.x,this.y+20,this.x-10,this.y+15);  
+ 
    
   } 
 
@@ -87,11 +99,11 @@ function Bird() {
 function Pipe() {
  
 
-  this.top = random(100,450);
+  this.top = random(200,600);
   this.bottom = random(height/2);  
   this.x = width;
   this.w = 50;
-  this.speed = 2;
+  this.speed = 3;
 
   this.highlight = false;
 
@@ -112,12 +124,12 @@ function Pipe() {
   this.show = function() {
      stroke(0);
     strokeWeight(5);
-    fill(252, 143, 143);
+    fill(66, 179, 244);
     if (this.highlight) {
       fill(255, 0, 0);
     }
     rect(this.x, 0, this.w, this.top);
-    rect(this.x, this.top + 150, this.w, 600);
+    rect(this.x, this.top + 250, this.w, 1056);
   }
 
   this.update = function() {
