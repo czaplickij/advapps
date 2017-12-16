@@ -2,7 +2,7 @@ var bird;
 var pipes = [];
 var r,g,b
 function setup() {
-new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
+//new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
   img = loadImage("https://czaplickij.github.io/advapps/city.jpg");
   createCanvas(650, 650);
   bird = new Bird();
@@ -70,6 +70,21 @@ function Bird() {
     triangle(this.x-20, this.y+15, this.x, this.y,this.x,this.y +30);
 		triangle(this.x+20,this.y-40,this.x+20,this.y+70,this.x+40, this.y+15);
     arc(this.x+50,this.y+15,50,30,4.7,PI)
+    ellipse(this.x-25,this.y+15,10,10);
+    ellipse(this.x-30,this.y+15,10,10);
+    ellipse(this.x-35,this.y+15,10,10);
+    ellipse(this.x+20, this.y-20,10,10);
+    ellipse(this.x+15, this.y-20,10,10);
+    ellipse(this.x+10, this.y-20,10,10);
+    ellipse(this.x+20, this.y-40,10,10);
+    ellipse(this.x+15, this.y-40,10,10);
+    ellipse(this.x+10, this.y-40,10,10);
+    ellipse(this.x+20, this.y+50,10,10);
+    ellipse(this.x+15, this.y+50,10,10);
+    ellipse(this.x+10, this.y+50,10,10);
+    ellipse(this.x+20, this.y+70,10,10);
+    ellipse(this.x+15, this.y+70,10,10);
+    ellipse(this.x+10, this.y+70,10,10);
      }
   } 
 
