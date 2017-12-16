@@ -2,7 +2,7 @@ var bird;
 var pipes = [];
 var r,g,b
 function setup() {
-//new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
+new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
   img = loadImage("https://czaplickij.github.io/advapps/city.jpg");
   createCanvas(650, 650);
   bird = new Bird();
