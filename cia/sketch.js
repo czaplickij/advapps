@@ -114,7 +114,7 @@ function Pipe() {
       if (bird.x + 70 > this.x-5 && bird.x < this.x + this.w) {
         this.highlight = true;
         fill(255,9,0);
-        text("WESTERN SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
+        text("KGB SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
         noLoop();
         return true;
       }
