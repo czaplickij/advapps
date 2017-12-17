@@ -101,12 +101,12 @@ function Pipe() {
   this.x = width;
   this.w = 50;
   this.speed = 3;
-
+ 
   this.highlight = false;
 
   this.hits = function(bird) {  
     if (bird.y +10 < this.top || bird.y > height - this.bottom) {
-      if (bird.x + 65 > this.x-5 && bird.x < this.x + this.w) {
+      if (bird.x + 70 > this.x-5 && bird.x < this.x + this.w) {
         this.highlight = true;
         fill(255,9,0);
         text("WESTERN SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
