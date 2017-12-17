@@ -5,6 +5,9 @@ function setup() {
 new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
   img = loadImage("https://czaplickij.github.io/advapps/strat.png");
   img1 = loadImage("https://czaplickij.github.io/advapps/jet.png");
+  img2 = loadImage("https://czaplickij.github.io/advapps/missle.png");
+  img3 = loadImage(" https://czaplickij.github.io/advapps/misslerev.png");
+
   createCanvas(650, 650);
   bird = new Bird();
   pipes.push(new Pipe());
@@ -64,7 +67,7 @@ function Bird() {
      if (mouseIsPressed) {
     if (mouseButton == LEFT)
       new Audio('https://czaplickij.github.io/advapps/swoosh.mp3').play()
-  fill(255,0,0);
+  fill(244, 66, 235);
        noStroke();
        //left engine
        ellipse(this.x-10,this.y+5,10,10);
@@ -114,7 +117,7 @@ function Pipe() {
       if (bird.x + 70 > this.x-5 && bird.x < this.x + this.w) {
         this.highlight = true;
         fill(255,9,0);
-        text("KGB SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
+        text("WESTERN SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
         noLoop();
         return true;
       }
@@ -130,8 +133,9 @@ function Pipe() {
     if (this.highlight) {
       fill(255, 255, 0);
     }
-    rect(this.x, 0, this.w, this.top);
-    rect(this.x, this.top + 250, this.w, 650);
+    image(img3,this.x, 0, this.w, this.top);
+    
+    image(img2, this.x, this.top + 250, this.w, 650);
   }
 
   this.update = function() {
