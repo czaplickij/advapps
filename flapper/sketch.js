@@ -150,7 +150,7 @@ function Pipe() {
     if (this.highlight) {
       fill(255, 255, 0);
     }
-      if (frameCount/20 < 10) {
+      if (frameCount/20 <8.54) {
     fill(255,0,0);
   textSize(32);
 	text("OBJECTIVE: DELIVER THE INTEL TO THE KREMLIN SAFELY; GOOD LUCK COMRADE", 200,70,70)
