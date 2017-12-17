@@ -2,12 +2,12 @@ var bird;
 var pipes = [];
 var r,g,b
 function setup() {
-new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
+new Audio('https://czaplickij.github.io/advapps/boney.mp3').play()
   img = loadImage("https://czaplickij.github.io/advapps/city.jpg");
+  img1 = loadImage("https://czaplickij.github.io/advapps/cccp4.jpg");
   createCanvas(650, 650);
   bird = new Bird();
   pipes.push(new Pipe());
-  
 }
 
 function draw() {
@@ -41,10 +41,8 @@ function draw() {
   fill(255);
 }
 function mousePressed() {
-    
     bird.up();
     //console.log("SPACE");
-  
 }
 
 
@@ -56,6 +54,7 @@ function Bird() {
   this.velocity = 0;
 
   this.show = function() {
+   
     fill(255,0,0);
     stroke(255);
     strokeWeight(3);
@@ -63,10 +62,10 @@ function Bird() {
     triangle(this.x-20, this.y+15, this.x, this.y,this.x,this.y +30);
 		triangle(this.x+20,this.y-40,this.x+20,this.y+70,this.x+40, this.y+15);
     arc(this.x+50,this.y+15,50,30,4.7,PI)
+    image(img1, this.x, this.y);
      if (mouseIsPressed) {
     if (mouseButton == LEFT)
       new Audio('https://czaplickij.github.io/advapps/swoosh.mp3').play()
-    
         fill(r,g,b);
      rect(this.x, this.y,50,30);
        //rear triangle
@@ -94,6 +93,7 @@ function Bird() {
     ellipse(this.x+20, this.y+70,10,10);
     ellipse(this.x+15, this.y+70,10,10);
     ellipse(this.x+10, this.y+70,10,10);
+       image(img1, this.x, this.y);
      }
   } 
 
@@ -130,10 +130,10 @@ function Pipe() {
 
   this.hits = function(bird) {  
     if (bird.y +10 < this.top || bird.y > height - this.bottom) {
-      if (bird.x + 65 > this.x && bird.x < this.x + this.w) {
+      if (bird.x + 65 > this.x-5 && bird.x < this.x + this.w) {
         this.highlight = true;
         fill(255,9,0);
-        text("YOU LOSE: RESTART BROWSER. FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
+        text("WESTERN SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
         noLoop();
         return true;
       }
