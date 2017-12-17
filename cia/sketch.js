@@ -35,6 +35,11 @@ function draw() {
   if (frameCount % 100 == 0) {
     pipes.push(new Pipe());
   }
+  if (frameCount/20 < 10) {
+    fill(255,0,0);
+  textSize(32);
+	text("OBJECTIVE: DELIVER THE INTEL TO WASHINGTON D.C. SAFELY", 200,70,70)
+  }
   fill(206, 79, 209);
   textSize(32);
 	text(frameCount/20, 10,70,70)
