@@ -144,17 +144,20 @@ function Pipe() {
   }
 
   this.show = function() {
+       if (frameCount/20 < 8.54) {
+             stroke(0);
+    strokeWeight(5);
+    fill(66, 244, 119);
+  textSize(32);
+	text("OBJECTIVE: DELIVER THE INTEL TO THE KREMLIN SAFELY. GOOD LUCK COMRADE MAKE THE USSR PROUD!", 200,70,70)
+  }
      stroke(0);
     strokeWeight(5);
     fill(94, 34, 173);
     if (this.highlight) {
       fill(255, 255, 0);
     }
-      if (frameCount/20 <8.54) {
-    fill(255,0,0);
-  textSize(32);
-	text("OBJECTIVE: DELIVER THE INTEL TO THE KREMLIN SAFELY; GOOD LUCK COMRADE", 200,70,70)
-  }
+   
     rect(this.x, 0, this.w, this.top);
     rect(this.x, this.top + 250, this.w, 650);
   }
