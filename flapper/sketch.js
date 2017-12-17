@@ -66,13 +66,14 @@ function Bird() {
      if (mouseIsPressed) {
     if (mouseButton == LEFT)
       new Audio('https://czaplickij.github.io/advapps/swoosh.mp3').play()
-        fill(r,g,b);
+        fill(255,0,0);
      rect(this.x, this.y,50,30);
        //rear triangle
     triangle(this.x-20, this.y+15, this.x, this.y,this.x,this.y +30);
        //wings
 		triangle(this.x+20,this.y-40,this.x+20,this.y+70,this.x+40, this.y+15);
     arc(this.x+50,this.y+15,50,30,4.7,PI)
+       fill(r,g,b);
        //rear engine
     ellipse(this.x-25,this.y+15,10,10);
     ellipse(this.x-30,this.y+15,10,10);
