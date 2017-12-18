@@ -1,20 +1,27 @@
 var bird;
 var pipes = [];
 var r,g,b
+var flake = [];
+var i2
 function setup() {
 new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
   img = loadImage("https://czaplickij.github.io/advapps/strat.png");
   img1 = loadImage("https://czaplickij.github.io/advapps/jet.png");
   img2 = loadImage("https://czaplickij.github.io/advapps/missle.png");
   img3 = loadImage(" https://czaplickij.github.io/advapps/misslerev.png");
-
   createCanvas(650, 650);
   bird = new Bird();
   pipes.push(new Pipe());
+  	img4 = loadImage('https://czaplickij.github.io/advapps/star1.png')
+  frameRate(0)
+  for (var l = 0; l < 10; l++) {
+    flake[l] = new Snow();
+  }
 }
 
 function draw() {
   background (143, 252, 252);
+     
   image(img, 0, 0);
   r = random(255);
  g = random(255);
@@ -22,10 +29,11 @@ function draw() {
   for (var i = pipes.length-1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
-
+  
     if (pipes[i].hits(bird)) {
       console.log("GAME OVER");
     }
+  
 
 
     if (pipes[i].offscreen()) {
@@ -47,13 +55,15 @@ function draw() {
   textSize(32);
 	text(frameCount/20, 10,70,70)
   fill(255);
+  for (var l = 0; l < flake.length; l++) {
+    flake[l].fall();
+    flake[l].show();
+   }
 }
 function mousePressed() {
     bird.up();
     //console.log("SPACE");
 }
-
-
 function Bird() {
   this.y = height/2;
   this.x = 64;
@@ -149,5 +159,28 @@ function Pipe() {
       return false;
       
     }
+  }
+  
+}
+function Snow() {
+  this.x = random(800,900);
+  this.y = random(height);
+  this.z = random(0, 20);
+  this.len = map(this.z, 0, 20, 10, 20);
+  this.xspeed = map(this.z, 0, 20, 1, 20);
+
+  this.fall = function() {
+    this.x = this.x - this.xspeed;
+    var grav = map(this.z, 0, 20, 0, 0.2);
+    this.xspeed = this.xspeed
+
+    if (this.x < 0) {
+      this.x = random(800,900);
+    }
+  }
+
+  this.show = function() {
+    fill(255)
+    image(img4,this.x,this.y,this.z)
   }
 }
