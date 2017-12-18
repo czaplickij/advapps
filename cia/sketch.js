@@ -62,7 +62,6 @@ function Bird() {
   this.velocity = 0;
 
   this.show = function() {
-   
     image(img1, this.x, this.y);
      if (mouseIsPressed) {
     if (mouseButton == LEFT)
@@ -75,10 +74,10 @@ function Bird() {
         ellipse(this.x,this.y+5,10,10);
        //right engine
        ellipse(this.x-10,this.y+45,10,10);
-        ellipse(this.x-5,this.y+45,10,10);
+ellipse(this.x-5,this.y+45,10,10);
         ellipse(this.x,this.y+45,10,10);
        image(img1, this.x, this.y);
-     }
+  } 
   } 
 
   this.up = function() {
@@ -112,10 +111,10 @@ function Pipe() {
  
   this.highlight = false;
 
-  this.hits = function(bird) {  
-    if (bird.y +10 < this.top || bird.y > height - this.bottom) {
-      if (bird.x + 70 > this.x-5 && bird.x < this.x + this.w) {
-        this.highlight = true;
+ this.hits = function(bird) {
+    if (bird.y < this.top || bird.y > height - this.bottom) {
+      if (bird.x > this.x && bird.x < this.x + this.w) {
+           this.highlight = true;
         fill(255,9,0);
         text("WESTERN SPY! FINAL SCORE:" + " " + frameCount/20 ,200,400,70);
         noLoop();
@@ -133,9 +132,10 @@ function Pipe() {
     if (this.highlight) {
       fill(255, 255, 0);
     }
-    image(img3,this.x, 0, this.w, this.top);
-    
-    image(img2, this.x, this.top + 250, this.w, 650);
+
+   image(img3,this.x, 0, this.w, this.top);
+    image(img2,this.x, height-this.bottom, this.w, this.bottom);
+   
   }
 
   this.update = function() {
