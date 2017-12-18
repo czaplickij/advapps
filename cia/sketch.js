@@ -2,7 +2,6 @@ var bird;
 var pipes = [];
 var r,g,b
 var flake = [];
-var i2
 function setup() {
 new Audio('https://czaplickij.github.io/advapps/daftpunk.mp3').play()
   img = loadImage("https://czaplickij.github.io/advapps/strat.png");
@@ -165,7 +164,7 @@ function Pipe() {
 function Snow() {
   this.x = random(800,900);
   this.y = random(height);
-  this.z = random(0, 20);
+  this.z = random(10,20);
   this.len = map(this.z, 0, 20, 10, 20);
   this.xspeed = map(this.z, 0, 20, 1, 20);
 
