@@ -113,7 +113,7 @@ ellipse(this.x-5,this.y+45,10,10);
 
 function Pipe() {
   this.top = random(100,400);
-  this.bottom = random(height/2);  
+  this.bottom = random(height/3);  
   this.x = width;
   this.w = 50;
   this.speed = 3;
